@@ -60,7 +60,7 @@ cd .build
 ################################################################################
 # compile texfile for the first time
 ################################################################################
-echo -n "Generating $texname... "
+echo -n "Generating $outtexname... "
 pdflatex -interaction=nonstopmode $texname.tex 1>/dev/null
 
 
