@@ -1,25 +1,28 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Główny plik
+% Main file
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper; 12pt]{article}
 
-\input{includes.tex}
-\input{macros.tex}
+% loading preambule
+\usepackage{preambule}
 
+\title{Project}
+\author{Duck Duck}
 
 \begin{document}
 
-%\input{titlepage.tex}
 \maketitle
 \date
 
 \tableofcontents
 
-\input{content1.tex}
-\input{content2.tex}
+
+\import{./}{content1.tex}
+\import{./}{content2.tex}
+
 
 \begin{appendix}
-\input{appendix.tex}
+    \import{./}{appendix.tex}
 \end{appendix}
 \newpage
 

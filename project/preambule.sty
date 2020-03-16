@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% all common includes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Languages and utf8 %%%
+\usepackage[german, english, polish]{babel} % languages
+\usepackage{polski}		% polski - powinien wystarczyć
+\usepackage[utf8]{inputenc}
+
+%%% fix for conflict polish babel and amssymb
+\makeatletter
+\let\polish@l=\lll \let\polish@L=\LLL
+\let\lll\relax \let\LLL\relax % undefine them
+\def\plll{\polish@l}
+\def\pLLL{\polish@L}
+\makeatother
+
+%%% Math
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+%%% Bib
+\usepackage[
+% set style, examples: 
+% https://www.overleaf.com/learn/latex/Biblatex_citation_styles
+style=alphabetic,
+% sorting by appearance in text
+sorting=none,
+% citation with style of its language
+language=autobib,
+autolang=other,
+% add page number in citation
+backref=false,
+% add ISBN.
+isbn=true,
+% do not add url untill neceserly
+url=false,
+%
+% max 3 names in citation 
+maxbibnames=3,
+% backend, biber recomended
+backend=biber
+]{biblatex}
+
+\addbibresource{references.bib}
+
+%%% Other
+\usepackage{graphicx}		% for graphics/pictures
+\usepackage{subcaption}     % subfigures (many figures as one)
+\usepackage{wrapfig}        % figures wraped in text
+\usepackage{geometry}		% for changing page layout
+\usepackage{indentfirst}	% indent in every paragraph
+\usepackage{icomma}		    % inteligent commas
+\usepackage{booktabs}		% enchanced tables
+\usepackage{float}		    % for pictures/graphics placed where you want
+\usepackage[locale=FR]{siunitx} % pretty units
+%\sisetup{per-mode=fraction}
+%\sisetup{per-mode=reciprocal}
+\sisetup{per-mode=symbol}
+\usepackage{verbatim}		% simple block-comments
+\usepackage{appendix}       % automatic appendix
+\usepackage{color}          % easy text colouring
+\usepackage{courier} 		% times, courier
+\usepackage{hyperref}       % magical clickable references
+\usepackage{csquotes}		% better quotations \enquote
+\usepackage{import}		    % import - better version of input
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Settings and macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{./images/}}
+
+\renewcommand{\figurename}{Rys.}
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\abstractname}{Abstrakt}
+%\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+
+%%% Mathematics environment
+
+\renewcommand{\d}{\text{d}}
+\newcommand{\D}{\text{D}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]    	
+\newtheorem{exercise}[example]{Exercise} 	
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}			
+\newtheorem{preposition}[theorem]{Preposition}	
+\newtheorem*{corollary}{Corollary}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+
