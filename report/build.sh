@@ -78,7 +78,7 @@ fi
 # generating bibliography
 ################################################################################
 echo -n "Generating bibliography... "
-bibtex $texname.aux > /dev/null 
+biber $texname > /dev/null 
 echo "OK"
 
 

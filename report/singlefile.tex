@@ -1,26 +1,48 @@
 \documentclass[a4paper; 11pt]{article}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% global includes
+% includes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage[polish]{babel}	% polski
+\usepackage[polish]{babel}	% polski
 \usepackage[utf8]{inputenc}
 \usepackage{polski}		    % polski
+%%% fix for conflict polish babel and amssymb
+\makeatletter
+\let\polishletl=\lll \let\polishletL=\LLL
+\let\lll\relax \let\LLL\relax % undefine them
+\def\plll{\polishletl}
+\def\pLLL{\polishletL}
+\makeatother
+
 \usepackage{courier} 		% times, kurier
 \usepackage{amsmath}		% mathematic
 \usepackage{amssymb}		% mathematic - symbols
 \usepackage{amsfonts}		% mathematic - fonts
-\usepackage{graphicx}		%
-\usepackage{geometry}		%
-\usepackage{indentfirst}	%
-\usepackage{icomma}		    %
-\usepackage{booktabs}		%
-\usepackage{float}		    %
-\usepackage[locale=FR]{siunitx} %
-\usepackage{verbatim}		% comment
+\usepackage{graphicx}		% for graphics/pictures
+\usepackage{subcaption}     % subfigures (many figures as one)
+\usepackage{wrapfig}        % figures wraped in text
+\usepackage{geometry}		% for changing page layout
+\usepackage{indentfirst}	% indent in every paragraph
+\usepackage{icomma}		    % inteligent commas
+\usepackage{booktabs}		% enchanced tables
+\usepackage{float}		    % for pictures/graphics placed where you want
+\usepackage[locale=FR]{siunitx} % pretty units
+%\sisetup{per-mode=fraction}
+%\sisetup{per-mode=reciprocal}
+\sisetup{per-mode=symbol}
+\usepackage{verbatim}		% simple block-comments
+\usepackage{color}          % easy text colouring
+\usepackage{courier} 		% times, courier
+\usepackage{hyperref}       % magical clickable references
+\usepackage{csquotes}		% better quotations \enquote
 
-\usepackage{biblatex}
+\usepackage[
+% set style, examples: 
+% https://www.overleaf.com/learn/latex/Biblatex_citation_styles
+style=alphabetic,
+sorting=none, language=autobib, autolang=other, backref=true, isbn=true, 
+url=false, maxbibnames=3, backend=biber
+]{biblatex}
 \addbibresource{references.bib}
 
 %\sisetup{per-mode=fraction}
@@ -31,7 +53,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % local includes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{color}
 
 \renewcommand{\figurename}{Rys.}
 \renewcommand{\tablename}{Tab.}
@@ -57,7 +78,7 @@ Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus,
 sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, 
 elit magna vulputate arcu, vel tempus metus leo non est. 
 Etiam sit amet lectus quis est congue mollis. 
-Phasellus congue lacus eget neque. 
+Phasellus congue lacus eget neque~\cite{x}.
 Phasellus ornare, ante vitae consectetuer consequat, purus sapien 
 ultricies dolor, et mollis pede metus eget nisi. 
 Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, 
